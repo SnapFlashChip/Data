@@ -1,0 +1,29 @@
+[
+  {
+    "id": "soil-moisture",
+    "name": "Soil moisture sensor",
+    "category": "sensor",
+    "description": "Measures soil moisture level — perfect for automatic plant watering systems.",
+    "requestedBy": 0,
+    "discordLink": "https://discord.gg/INVITE_CODE",
+    "eta": null
+  },
+  {
+    "id": "ir-remote",
+    "name": "IR remote + receiver",
+    "category": "input-control",
+    "description": "Control your project with a TV-style remote control. Receiver reads infrared signals.",
+    "requestedBy": 0,
+    "discordLink": "https://discord.gg/INVITE_CODE",
+    "eta": null
+  },
+  {
+    "id": "sim800l",
+    "name": "SIM800L GSM module",
+    "category": "connectivity",
+    "description": "Send SMS messages and make data calls over 2G. Great for remote monitoring alerts.",
+    "requestedBy": 0,
+    "discordLink": "https://discord.gg/INVITE_CODE",
+    "eta": null
+  }
+]
