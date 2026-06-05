@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "chip": "ESP32-C3",
+    "architecture": "RISC-V 32-bit",
+    "framework": "ESP-IDF / Arduino Core",
+    "version": "1.0.0",
+    "description": "ESP32-C3 command and code snippet reference database"
+  },
+  "categories": [
+    {
+      "id": "basics",
+      "name": "Basics",
+      "description": "Getting started essentials",
+      "icon": "bolt",
+      "snippets": [
+        {
+          "id": "blink",
+          "name": "Blink LED",
+          "description": "Blink the onboard LED on and off every second",
+          "difficulty": "beginner",
+          "code": "void setup() {\n  pinMode(8, OUTPUT); // ESP32-C3 onboard LED is GPIO8\n}\n\nvoid loop() {\n  digitalWrite(8, HIGH);\n  delay(1000);\n  digitalWrite(8, LOW);\n  delay(1000);\n}"
+        },
+        {
+          "id": "serial-print",
+          "name": "Serial Print",
+          "description": "Send text output to the serial monitor",
+          "difficulty": "beginner",
+          "code": "void setup() {\n  Serial.begin(115200);\n  Serial.println(\"ESP32-C3 is alive!\");\n}\n\nvoid loop() {\n  Serial.println(\"Hello from ESP32-C3\");\n  delay(1000);\n}"
+        },
+        {
+          "id": "delay-millis",
+          "name": "Non-blocking Delay (millis)",
+          "description": "Use millis() instead of delay() to avoid blocking code execution",
+          "difficulty": "beginner",
+          "code": "unsigned long previousMillis = 0;\nconst long interval = 1000;\n\nvoid setup() {\n  pinMode(8, OUTPUT);\n}\n\nvoid loop() {\n  unsigned long currentMillis = millis();\n  if (currentMillis - previousMillis >= interval) {\n    previousMillis = currentMillis;\n    digitalWrite(8, !digitalRead(8)); // toggle LED\n  }\n}"
+        }
+      ]
+    },
+    {
+      "id": "gpio",
+      "name": "GPIO",
+      "description": "Digital and analog input/output",
+      "icon": "cpu",
+      "snippets": [
+        {
+          "id": "digital-write",
+          "name": "Digital Write",
+          "description": "Set a GPIO pin HIGH or LOW",
+          "difficulty": "beginner",
+          "code": "void setup() {\n  pinMode(5, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(5, HIGH); // turn ON\n  delay(500);\n  digitalWrite(5, LOW);  // turn OFF\n  delay(500);\n}"
+        },
+        {
+          "id": "digital-read",
+          "name": "Digital Read (Button)",
+          "description": "Read a button press on a GPIO pin with internal pull-up",
+          "difficulty": "beginner",
+          "code": "void setup() {\n  Serial.begin(115200);\n  pinMode(4, INPUT_PULLUP); // button on GPIO4\n}\n\nvoid loop() {\n  int state = digitalRead(4);\n  if (state == LOW) {\n    Serial.println(\"Button pressed!\");\n  }\n  delay(100);\n}"
+        },
+        {
+          "id": "analog-read",
+          "name": "Analog Read",
+          "description": "Read an analog value from a GPIO pin (0-4095, 12-bit ADC)",
+          "difficulty": "beginner",
+          "code": "void setup() {\n  Serial.begin(115200);\n}\n\nvoid loop() {\n  int value = analogRead(A0); // or use GPIO number e.g. 3\n  Serial.print(\"Analog value: \");\n  Serial.println(value);\n  delay(500);\n}"
+        },
+        {
+          "id": "pwm-output",
+          "name": "PWM Output",
+          "description": "Generate a PWM signal to control LED brightness or motor speed",
+          "difficulty": "intermediate",
+          "code": "const int pwmPin = 5;\nconst int freq = 5000;\nconst int resolution = 8; // 8-bit = 0-255\n\nvoid setup() {\n  ledcAttach(pwmPin, freq, resolution);\n}\n\nvoid loop() {\n  for (int duty = 0; duty <= 255; duty++) {\n    ledcWrite(pwmPin, duty);\n    delay(10);\n  }\n  for (int duty = 255; duty >= 0; duty--) {\n    ledcWrite(pwmPin, duty);\n    delay(10);\n  }\n}"
+        }
+      ]
+    },
+    {
+      "id": "wifi",
+      "name": "WiFi",
+      "description": "Connect and communicate over WiFi",
+      "icon": "wifi",
+      "snippets": [
+        {
+          "id": "wifi-connect",
+          "name": "Connect to WiFi",
+          "description": "Connect the ESP32-C3 to a WiFi network",
+          "difficulty": "beginner",
+          "code": "#include <WiFi.h>\n\nconst char* ssid = \"YOUR_SSID\";\nconst char* password = \"YOUR_PASSWORD\";\n\nvoid setup() {\n  Serial.begin(115200);\n  WiFi.begin(ssid, password);\n  Serial.print(\"Connecting\");\n  while (WiFi.status() != WL_CONNECTED) {\n    delay(500);\n    Serial.print(\".\");\n  }\n  Serial.println();\n  Serial.print(\"Connected! IP: \");\n  Serial.println(WiFi.localIP());\n}\n\nvoid loop() {}"
+        },
+        {
+          "id": "wifi-scan",
+          "name": "Scan WiFi Networks",
+          "description": "Scan for available WiFi networks nearby",
+          "difficulty": "beginner",
+          "code": "#include <WiFi.h>\n\nvoid setup() {\n  Serial.begin(115200);\n  WiFi.mode(WIFI_STA);\n  WiFi.disconnect();\n  delay(100);\n  int n = WiFi.scanNetworks();\n  Serial.print(n);\n  Serial.println(\" networks found:\");\n  for (int i = 0; i < n; i++) {\n    Serial.print(i + 1);\n    Serial.print(\": \");\n    Serial.print(WiFi.SSID(i));\n    Serial.print(\" (RSSI: \");\n    Serial.print(WiFi.RSSI(i));\n    Serial.println(\")\");\n  }\n}\n\nvoid loop() {}"
+        },
+        {
+          "id": "http-get",
+          "name": "HTTP GET Request",
+          "description": "Fetch data from a URL over WiFi",
+          "difficulty": "intermediate",
+          "code": "#include <WiFi.h>\n#include <HTTPClient.h>\n\nconst char* ssid = \"YOUR_SSID\";\nconst char* password = \"YOUR_PASSWORD\";\n\nvoid setup() {\n  Serial.begin(115200);\n  WiFi.begin(ssid, password);\n  while (WiFi.status() != WL_CONNECTED) delay(500);\n  Serial.println(\"Connected!\");\n\n  HTTPClient http;\n  http.begin(\"http://api.example.com/data\");\n  int httpCode = http.GET();\n  if (httpCode == 200) {\n    String payload = http.getString();\n    Serial.println(payload);\n  }\n  http.end();\n}\n\nvoid loop() {}"
+        },
+        {
+          "id": "web-server",
+          "name": "Simple Web Server",
+          "description": "Serve a webpage from the ESP32-C3",
+          "difficulty": "intermediate",
+          "code": "#include <WiFi.h>\n#include <WebServer.h>\n\nconst char* ssid = \"YOUR_SSID\";\nconst char* password = \"YOUR_PASSWORD\";\nWebServer server(80);\n\nvoid handleRoot() {\n  server.send(200, \"text/html\", \"<h1>Hello from ESP32-C3!</h1>\");\n}\n\nvoid setup() {\n  Serial.begin(115200);\n  WiFi.begin(ssid, password);\n  while (WiFi.status() != WL_CONNECTED) delay(500);\n  server.on(\"/\", handleRoot);\n  server.begin();\n  Serial.print(\"Server at: \");\n  Serial.println(WiFi.localIP());\n}\n\nvoid loop() {\n  server.handleClient();\n}"
+        }
+      ]
+    },
+    {
+      "id": "bluetooth",
+      "name": "Bluetooth LE",
+      "description": "Bluetooth Low Energy communication",
+      "icon": "bluetooth",
+      "snippets": [
+        {
+          "id": "ble-advertise",
+          "name": "BLE Advertise",
+          "description": "Make the ESP32-C3 visible as a BLE device",
+          "difficulty": "intermediate",
+          "code": "#include <BLEDevice.h>\n#include <BLEAdvertising.h>\n\nvoid setup() {\n  Serial.begin(115200);\n  BLEDevice::init(\"ESP32-C3 SnapFlash\");\n  BLEAdvertising* pAdvertising = BLEDevice::getAdvertising();\n  pAdvertising->start();\n  Serial.println(\"BLE advertising started!\");\n}\n\nvoid loop() {}"
+        },
+        {
+          "id": "ble-server",
+          "name": "BLE Server with Characteristic",
+          "description": "Create a BLE server that exposes a readable/writable characteristic",
+          "difficulty": "intermediate",
+          "code": "#include <BLEDevice.h>\n#include <BLEServer.h>\n#include <BLEUtils.h>\n\n#define SERVICE_UUID        \"4fafc201-1fb5-459e-8fcc-c5c9c331914b\"\n#define CHARACTERISTIC_UUID \"beb5483e-36e1-4688-b7f5-ea07361b26a8\"\n\nvoid setup() {\n  Serial.begin(115200);\n  BLEDevice::init(\"ESP32-C3\");\n  BLEServer* pServer = BLEDevice::createServer();\n  BLEService* pService = pServer->createService(SERVICE_UUID);\n  BLECharacteristic* pChar = pService->createCharacteristic(\n    CHARACTERISTIC_UUID,\n    BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_WRITE\n  );\n  pChar->setValue(\"Hello!\");\n  pService->start();\n  BLEDevice::getAdvertising()->start();\n  Serial.println(\"BLE Server ready\");\n}\n\nvoid loop() {}"
+        }
+      ]
+    },
+    {
+      "id": "timers",
+      "name": "Timers & Interrupts",
+      "description": "Hardware timers and interrupt service routines",
+      "icon": "clock",
+      "snippets": [
+        {
+          "id": "hardware-timer",
+          "name": "Hardware Timer",
+          "description": "Use a hardware timer to trigger code at a precise interval",
+          "difficulty": "intermediate",
+          "code": "volatile int counter = 0;\nhw_timer_t* timer = NULL;\n\nvoid IRAM_ATTR onTimer() {\n  counter++;\n}\n\nvoid setup() {\n  Serial.begin(115200);\n  timer = timerBegin(1000000); // 1MHz tick\n  timerAttachInterrupt(timer, &onTimer);\n  timerAlarm(timer, 1000000, true, 0); // trigger every 1 second\n}\n\nvoid loop() {\n  Serial.print(\"Counter: \");\n  Serial.println(counter);\n  delay(500);\n}"
+        },
+        {
+          "id": "gpio-interrupt",
+          "name": "GPIO Interrupt",
+          "description": "Trigger a function instantly when a pin changes state",
+          "difficulty": "intermediate",
+          "code": "volatile bool pressed = false;\n\nvoid IRAM_ATTR handleInterrupt() {\n  pressed = true;\n}\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(4, INPUT_PULLUP);\n  attachInterrupt(digitalPinToInterrupt(4), handleInterrupt, FALLING);\n}\n\nvoid loop() {\n  if (pressed) {\n    Serial.println(\"Button interrupt fired!\");\n    pressed = false;\n  }\n}"
+        }
+      ]
+    },
+    {
+      "id": "sensors",
+      "name": "Sensors",
+      "description": "Common sensor integrations",
+      "icon": "thermometer",
+      "snippets": [
+        {
+          "id": "dht22",
+          "name": "DHT22 Temperature & Humidity",
+          "description": "Read temperature and humidity from a DHT22 sensor",
+          "difficulty": "beginner",
+          "code": "#include <DHT.h>\n\n#define DHTPIN 4\n#define DHTTYPE DHT22\nDHT dht(DHTPIN, DHTTYPE);\n\nvoid setup() {\n  Serial.begin(115200);\n  dht.begin();\n}\n\nvoid loop() {\n  float humidity = dht.readHumidity();\n  float temperature = dht.readTemperature();\n  if (!isnan(humidity) && !isnan(temperature)) {\n    Serial.print(\"Temp: \");\n    Serial.print(temperature);\n    Serial.print(\"°C  Humidity: \");\n    Serial.print(humidity);\n    Serial.println(\"%\");\n  }\n  delay(2000);\n}"
+        },
+        {
+          "id": "ultrasonic",
+          "name": "HC-SR04 Ultrasonic Distance",
+          "description": "Measure distance using an HC-SR04 ultrasonic sensor",
+          "difficulty": "beginner",
+          "code": "#define TRIG_PIN 5\n#define ECHO_PIN 4\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(TRIG_PIN, OUTPUT);\n  pinMode(ECHO_PIN, INPUT);\n}\n\nvoid loop() {\n  digitalWrite(TRIG_PIN, LOW);\n  delayMicroseconds(2);\n  digitalWrite(TRIG_PIN, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(TRIG_PIN, LOW);\n\n  long duration = pulseIn(ECHO_PIN, HIGH);\n  float distance = duration * 0.034 / 2;\n  Serial.print(\"Distance: \");\n  Serial.print(distance);\n  Serial.println(\" cm\");\n  delay(500);\n}"
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "name": "Storage",
+      "description": "Save and retrieve data on the chip",
+      "icon": "database",
+      "snippets": [
+        {
+          "id": "preferences",
+          "name": "Save to NVS (Preferences)",
+          "description": "Store persistent key-value data that survives reboots",
+          "difficulty": "beginner",
+          "code": "#include <Preferences.h>\nPreferences prefs;\n\nvoid setup() {\n  Serial.begin(115200);\n  prefs.begin(\"myapp\", false);\n\n  int count = prefs.getInt(\"bootcount\", 0);\n  count++;\n  prefs.putInt(\"bootcount\", count);\n  prefs.end();\n\n  Serial.print(\"Boot count: \");\n  Serial.println(count);\n}\n\nvoid loop() {}"
+        },
+        {
+          "id": "spiffs",
+          "name": "Read/Write File (LittleFS)",
+          "description": "Read and write files to the ESP32-C3 flash filesystem",
+          "difficulty": "intermediate",
+          "code": "#include <LittleFS.h>\n\nvoid setup() {\n  Serial.begin(115200);\n  if (!LittleFS.begin(true)) {\n    Serial.println(\"LittleFS mount failed\");\n    return;\n  }\n\n  // Write\n  File f = LittleFS.open(\"/test.txt\", \"w\");\n  f.println(\"Hello ESP32-C3!\");\n  f.close();\n\n  // Read\n  f = LittleFS.open(\"/test.txt\", \"r\");\n  while (f.available()) {\n    Serial.write(f.read());\n  }\n  f.close();\n}\n\nvoid loop() {}"
+        }
+      ]
+    }
+  ]
+}
