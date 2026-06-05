@@ -1,0 +1,247 @@
+{
+  "esp32-devkit": {
+    "amazon-uk": {
+      "asin": "B08D5ZD528",
+      "price": "£6.99",
+      "productName": "ESP32 DevKit V1 Development Board 38 Pin"
+    }
+  },
+  "esp32-s3": {
+    "amazon-uk": {
+      "asin": "B0B6HT7Z9R",
+      "price": "£8.99",
+      "productName": "ESP32-S3 Development Board"
+    }
+  },
+  "esp32-c3": {
+    "amazon-uk": {
+      "asin": "B09ZYXYZXY",
+      "price": "£5.99",
+      "productName": "ESP32-C3 Mini Development Board"
+    }
+  },
+  "pico-w": {
+    "amazon-uk": {
+      "asin": "B0B6HMG9KW",
+      "price": "£6.99",
+      "productName": "Raspberry Pi Pico W"
+    }
+  },
+  "single-led": {
+    "amazon-uk": {
+      "asin": "B01C19ENFK",
+      "price": "£3.99",
+      "productName": "LED Assortment Pack 200pcs 3mm 5mm"
+    }
+  },
+  "rgb-led": {
+    "amazon-uk": {
+      "asin": "B01C3ZZT8W",
+      "price": "£4.99",
+      "productName": "RGB LED Common Cathode 50pcs"
+    }
+  },
+  "neopixel-strip": {
+    "amazon-uk": {
+      "asin": "B01CDTEJBG",
+      "price": "£8.99",
+      "productName": "WS2812B LED Strip 1m 60 LEDs/m Individually Addressable"
+    }
+  },
+  "oled-ssd1306": {
+    "amazon-uk": {
+      "asin": "B076PDVXQD",
+      "price": "£5.99",
+      "productName": "0.96 inch OLED Display Module I2C SSD1306"
+    }
+  },
+  "lcd-i2c": {
+    "amazon-uk": {
+      "asin": "B07QLRD3TM",
+      "price": "£4.99",
+      "productName": "LCD 1602 Display with I2C Interface Module"
+    }
+  },
+  "dht22": {
+    "amazon-uk": {
+      "asin": "B078SVZB1X",
+      "price": "£4.99",
+      "productName": "DHT22 AM2302 Digital Temperature Humidity Sensor"
+    }
+  },
+  "hc-sr04": {
+    "amazon-uk": {
+      "asin": "B01COSN7O6",
+      "price": "£3.49",
+      "productName": "HC-SR04 Ultrasonic Distance Sensor Module"
+    }
+  },
+  "pir-sensor": {
+    "amazon-uk": {
+      "asin": "B07KNKD5XW",
+      "price": "£3.99",
+      "productName": "HC-SR501 PIR Motion Sensor Module"
+    }
+  },
+  "mpu6050": {
+    "amazon-uk": {
+      "asin": "B07MK3LRGZ",
+      "price": "£4.99",
+      "productName": "MPU-6050 3 Axis Gyroscope Accelerometer Module"
+    }
+  },
+  "bmp280": {
+    "amazon-uk": {
+      "asin": "B07D8T4HP6",
+      "price": "£4.49",
+      "productName": "BMP280 Barometric Pressure Altitude Sensor Module"
+    }
+  },
+  "ds18b20": {
+    "amazon-uk": {
+      "asin": "B07N9VYMXQ",
+      "price": "£4.99",
+      "productName": "DS18B20 Waterproof Digital Temperature Sensor Probe"
+    }
+  },
+  "rfid-rc522": {
+    "amazon-uk": {
+      "asin": "B07VLDSYRW",
+      "price": "£4.99",
+      "productName": "RFID RC522 Card Reader Module with Cards and Key Fobs"
+    }
+  },
+  "servo-motor": {
+    "amazon-uk": {
+      "asin": "B07MV69QTM",
+      "price": "£5.99",
+      "productName": "SG90 Micro Servo Motor 5pcs"
+    }
+  },
+  "relay-module": {
+    "amazon-uk": {
+      "asin": "B07CN47GQP",
+      "price": "£3.99",
+      "productName": "1 Channel 5V Relay Module for Arduino ESP32"
+    }
+  },
+  "passive-buzzer": {
+    "amazon-uk": {
+      "asin": "B01LZVM54V",
+      "price": "£2.99",
+      "productName": "Passive Buzzer Module 5pcs"
+    }
+  },
+  "dfplayer-mini": {
+    "amazon-uk": {
+      "asin": "B07Y2YKYRS",
+      "price": "£3.99",
+      "productName": "DFPlayer Mini MP3 Player Module"
+    }
+  },
+  "push-button": {
+    "amazon-uk": {
+      "asin": "B01N47T75P",
+      "price": "£2.99",
+      "productName": "Tactile Push Button Switch Assortment 100pcs"
+    }
+  },
+  "rotary-encoder": {
+    "amazon-uk": {
+      "asin": "B07T3672VK",
+      "price": "£3.99",
+      "productName": "KY-040 Rotary Encoder Module 5pcs"
+    }
+  },
+  "rtc-ds3231": {
+    "amazon-uk": {
+      "asin": "B07BHHZWMB",
+      "price": "£3.99",
+      "productName": "DS3231 Real Time Clock Module for Arduino"
+    }
+  },
+  "microsd-module": {
+    "amazon-uk": {
+      "asin": "B07BJ2P6X6",
+      "price": "£3.49",
+      "productName": "Micro SD Card Module SPI Interface"
+    }
+  },
+  "tft-ili9341": {
+    "amazon-uk": {
+      "asin": "B078J5TS2G",
+      "price": "£8.99",
+      "productName": "2.8 inch TFT LCD Display Module ILI9341 240x320 SPI"
+    }
+  },
+  "tft-round-gc9a01": {
+    "amazon-uk": {
+      "asin": "B09ZYKZYKZ",
+      "price": "£9.99",
+      "productName": "1.28 inch Round TFT LCD Display GC9A01 240x240 SPI"
+    }
+  },
+  "eink-waveshare": {
+    "amazon-uk": {
+      "asin": "B07DH4V8HX",
+      "price": "£14.99",
+      "productName": "Waveshare 2.9inch E-Paper Display Module SPI"
+    }
+  },
+  "max7219-matrix": {
+    "amazon-uk": {
+      "asin": "B07FFV537V",
+      "price": "£6.99",
+      "productName": "MAX7219 8x8 LED Matrix Module 4-in-1 Display"
+    }
+  },
+  "tm1637": {
+    "amazon-uk": {
+      "asin": "B07MCGDST2",
+      "price": "£3.49",
+      "productName": "TM1637 4-Digit 7-Segment LED Display Module"
+    }
+  },
+  "breadboard-full-size": {
+    "amazon-uk": {
+      "asin": "B07PCJP9DY",
+      "price": "£3.99",
+      "productName": "830 Point Solderless Breadboard Full Size"
+    }
+  },
+  "jumper-wire-pack": {
+    "amazon-uk": {
+      "asin": "B01EV70C78",
+      "price": "£5.99",
+      "productName": "120pcs Jumper Wire Kit M-M M-F F-F Dupont Cables"
+    }
+  },
+  "resistor-pack": {
+    "amazon-uk": {
+      "asin": "B07L851T3V",
+      "price": "£6.99",
+      "productName": "525pcs Resistor Kit 1/4W 5 percent 21 Values"
+    }
+  },
+  "multimeter": {
+    "amazon-uk": {
+      "asin": "B01ISAMUA6",
+      "price": "£11.99",
+      "productName": "AstroAI Digital Multimeter TRMS 4000 Counts"
+    }
+  },
+  "soldering-iron-kit": {
+    "amazon-uk": {
+      "asin": "B07G71ZB39",
+      "price": "£22.99",
+      "productName": "Soldering Iron Kit Temperature Controlled 60W with Stand"
+    }
+  },
+  "ultimate-starter-kit": {
+    "amazon-uk": {
+      "asin": "B09ZYXABCD",
+      "price": "£24.99",
+      "productName": "ESP32 Starter Kit Complete with Breadboard Sensors Components"
+    }
+  }
+}
